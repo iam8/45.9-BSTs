@@ -19,7 +19,10 @@ class BinarySearchTree {
     insert(val) {
 
         // Insert value as root if root is null
-        if (!this.root) this.root = new Node(val);
+        if (!this.root) {
+            this.root = new Node(val);
+            return this;
+        }
 
         let current = this.root;
         let isInserted = false;

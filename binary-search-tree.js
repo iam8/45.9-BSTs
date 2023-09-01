@@ -125,7 +125,6 @@ class BinarySearchTree {
             if (!startNode) return;
 
             visited.push(startNode.val);
-
             traverse(startNode.left);
             traverse(startNode.right);
         }
@@ -137,13 +136,35 @@ class BinarySearchTree {
     /** dfsInOrder(): Traverse the tree using in-order DFS.
      * Return an array of visited node values. */
     dfsInOrder() {
+        const visited = [];
 
+        const traverse = (startNode) => {
+            if (!startNode) return;
+
+            traverse(startNode.left);
+            visited.push(startNode.val);
+            traverse(startNode.right);
+        }
+
+        traverse(this.root);
+        return visited;
     }
 
     /** dfsPostOrder(): Traverse the tree using post-order DFS.
      * Return an array of visited node values. */
     dfsPostOrder() {
+        const visited = [];
 
+        const traverse = (startNode) => {
+            if (!startNode) return;
+
+            traverse(startNode.left);
+            traverse(startNode.right);
+            visited.push(startNode.val);
+        }
+
+        traverse(this.root);
+        return visited;
     }
 
     /** bfs(): Traverse the tree using BFS.

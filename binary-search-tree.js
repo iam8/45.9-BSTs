@@ -35,26 +35,18 @@ class BinarySearchTree {
 
             if (val < current.val) {
                 if (!current.left) {
-
-                    // Attach new node
                     current.left = new Node(val);
                     isInserted = true;
                 } else {
-
-                    // Continue searching for spot in tree
                     current = current.left;
                 }
             }
 
             if (val > current.val) {
                 if (!current.right) {
-
-                    // Attach new node
                     current.right = new Node(val);
                     isInserted = true;
                 } else {
-
-                    // Continue searching for spot in tree
                     current = current.right;
                 }
             }

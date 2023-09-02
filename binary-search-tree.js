@@ -170,7 +170,20 @@ class BinarySearchTree {
     /** bfs(): Traverse the tree using BFS.
      * Return an array of visited node values. */
     bfs() {
+        if (!this.root) return [];
 
+        const visited = [];
+        const toVisitQueue = [this.root];
+
+        while (toVisitQueue.length) {
+            let current = toVisitQueue.shift();
+
+            visited.push(current.val);
+            if (current.left) toVisitQueue.push(current.left);
+            if (current.right) toVisitQueue.push(current.right);
+        }
+
+        return visited;
     }
 
     /** Further Study!
